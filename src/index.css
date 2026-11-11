@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary: #063D32;
+    --color-secondary: #0B5B49;
+    --color-accent: #75F5C5;
+    --color-mint: #A7F3D0;
+    --color-bg-dark: #032019;
+    --color-bg-alt: #042820;
+    --color-card-bg: rgba(11, 91, 73, 0.55);
+    --color-card-border: rgba(117, 245, 197, 0.25);
+    --color-card-hover: rgba(11, 91, 73, 0.85);
+    --color-text-glow: rgba(117, 245, 197, 0.65);
+    --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-body: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-primary);
+    color: #E6F7F2;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Glassmorphism Styles Powered by Dynamic CSS Theme Variables */
+.glass-panel {
+  background: var(--color-card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-card-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.glass-card {
+  background: var(--color-card-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--color-card-border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: var(--color-card-hover);
+  border-color: var(--color-accent);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px var(--color-card-border);
+  transform: translateY(-4px);
+}
+
+.glass-pill {
+  background: var(--color-card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-card-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Glow effects */
+.glow-mint {
+  box-shadow: 0 0 30px var(--color-accent), 0 0 60px var(--color-card-border);
+}
+
+.text-glow {
+  text-shadow: 0 0 24px var(--color-text-glow), 0 0 45px var(--color-card-border);
+}
+
+/* Pulse ring animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
